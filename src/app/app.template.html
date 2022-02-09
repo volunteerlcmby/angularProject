@@ -1,0 +1,22 @@
+
+
+    <h1>{{partOfDay()}}</h1>
+    <h1>{{title}}</h1>
+    <ul>
+        <li>
+            <a routerLink="home">Home</a>
+        </li>
+        <li>
+            <a routerLink="students">Tasks</a>
+        </li>
+        
+        <!-- <li>
+            <a routerLink="sdfsf">Error Page</a>
+        </li> -->
+        <!-- <li>
+            <a style="cursor: pointer;" (click)="navigateToTasks()">Link by Code</a>
+        </li> -->
+    </ul>
+<!-- <app-student-list (onEditClick)="editClick($event)"></app-student-list> -->
+<router-outlet></router-outlet>
+<!-- <app-test-list [tests]="selectedstudent.tests"></app-test-list> -->

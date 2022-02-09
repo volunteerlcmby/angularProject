@@ -1,0 +1,74 @@
+<div class="card">
+<form id="form" [formGroup]="studentForm" >
+    <!-- <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="id">id:</label>
+            </div>
+       <td><input type="text" formControlName="id" /></td>
+       <div class="col-10"></div>
+       {{student.id}}
+       </div>
+       <div *ngIf="studentForm.controls['id'].touched && studentForm.controls['id'].errors?.required" class="alert alert-danger">this field is required</div> -->
+    <!-- </div> -->
+
+<div class="form-group" >
+    <div class="row" >
+        <div class="col-2">
+            <label for="name">name:</label>
+        </div>
+          <div class="col-10">
+          <input id="name" name="name" class="form-control" type="text" formControlName="name"/>
+          <div *ngIf="studentForm.controls['name'].touched && studentForm.controls['name'].errors?.required" class="alert alert-danger">this field is required</div>
+          <div *ngIf="studentForm.controls['name'].touched && studentForm.controls['name'].errors?.minlength" class="alert alert-danger">the minimum required length is 2 chars</div>
+        </div>
+    </div>
+</div>
+    <!-- <tr>
+        <td>active?:</td>
+        <td><input type="text"  [(ngModel)]="student.active" /></td>
+    </tr>
+    <tr>
+        <td>marksAvg:</td>
+        <td><input type="text"  [(ngModel)]="student.marksAvg"/></td>
+    </tr>
+    <tr  *ngIf="student.active==false">
+        <td>leaving date:</td>
+        <td><input  [(ngModel)]="student.leavingDate" /></td>
+    </tr> -->
+    <div class="form-group" >
+        <div class="row" >
+            <div class="col-2">
+                <label for="name">proffession:</label>
+            </div>
+            <select formControlName="proffessionId">
+                <option *ngFor="let proffession of proffessionList" [value]="proffession.id">{{proffession.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="priority">year:</label>
+            </div>
+            <div class="col-10">
+                <input type="radio" name="year" [value]="year.a" formControlName="year">a
+                <br>
+                <input type="radio" name="year" [value]="year.b" formControlName="year">b
+                <br>
+                <input type="radio" name="year" [value]="year.c" formControlName="year">c
+                <br>
+            </div>
+            <div [ngSwitch]="studentForm.controls['year'].value">
+                <div *ngSwitchCase="year.a"> 66 times a week</div>
+                <div *ngSwitchCase="year.b"> 55 times a week</div>
+                <div *ngSwitchCase="year.c">    oOnce a week</div>
+            </div>
+        </div>
+    </div>
+    <button  class="btn btn-success" [disabled]="studentForm.invalid"(click)="saveStudent()">save</button>
+    <button class="btn btn-info" (click)="resetForm()">Clear</button>
+</form>
+<!-- <div *ngIf="submitted">
+  <h1>The student was saved successfuly</h1>
+</div> -->

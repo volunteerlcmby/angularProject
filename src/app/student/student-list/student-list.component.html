@@ -1,0 +1,38 @@
+<ul class="list-group">
+    test
+<div *ngIf="studentList">
+    <input type="checkbox" #cb (change)="getPartList(cb.checked)">
+    <li class="list-group-item"  *ngFor="let student of studentList"
+    [ngClass]="{
+        'list-group-item-primary':  student.marksAvg > 90 ,
+        'list-group-item-success' :student.active==true
+    }"
+    >
+    
+        <div class="row">
+            <div class="col-1">
+             {{student.id}}
+            </div>
+            <div class="col-3">
+             {{student.name}}
+            </div>
+            <div class="col-2">
+            <button class="btn btn-primary"  (click)="showStud(student); " >show</button>
+            </div>
+            <div class="col-2">
+       <button class="btn btn-primary"(click)="delStud(student.id)">delete</button>
+    </div>
+</div>
+</li>
+   
+</div>
+</ul>
+
+
+<div>
+    <!-- id: {{selectedStudent.id}}
+    name: {{selectedStudent.name}} -->
+</div>
+<button  (click)="newStudent()">new student</button>
+<!-- <app-student-details-md [student]="selectedStudent" (onSaveStudent)="addStudent($event)" #student_details_md></app-student-details-md> -->
+
